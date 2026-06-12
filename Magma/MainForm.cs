@@ -4807,15 +4807,15 @@ namespace MagmaRokOn
                         ProjectCompiler = Tools.GetConfigString(sr.ReadLine());
                         wiiConversion.Checked = sr.ReadLine().ToLowerInvariant().Contains("true");
 
-                        if (!version.Contains("v3.1") && !version.Contains("v3.2") && !version.Contains("v3.3") && !version.Contains("v4.0")) break;
+                        if (!version.Contains("v3.1") && !version.Contains("v3.2") && !version.Contains("v3.3") && !version.Contains("v4.0") && !version.Contains("v4.1")) break;
                         signSongAsLIVE.Checked = sr.ReadLine().ToLowerInvariant().Contains("true");
                         use441KHz24bitToolStripMenuItem.Checked = sr.ReadLine().ToLowerInvariant().Contains("true");
                         use48KHz24bitToolStripMenuItem.Checked = sr.ReadLine().ToLowerInvariant().Contains("true");
                         customSkinTool.Checked = sr.ReadLine().ToLowerInvariant().Contains("true");
                         SKIN_PATH = Tools.GetConfigString(sr.ReadLine());
-                        if (!version.Contains("v3.2") && !version.Contains("v3.3") && !version.Contains("v4.0")) break;
+                        if (!version.Contains("v3.2") && !version.Contains("v3.3") && !version.Contains("v4.0") && !version.Contains("v4.1")) break;
                         useUniqueNumericSongID.Checked = sr.ReadLine().ToLowerInvariant().Contains("true");
-                        if (!version.Contains("v4.0")) break;
+                        if (!version.Contains("v4.0") && !version.Contains("v4.1")) break;
                         chkAuthorDTA.Checked = sr.ReadLine().ToLowerInvariant().Contains("true");
                     }
                 }
@@ -8440,8 +8440,8 @@ namespace MagmaRokOn
             }
             else
             {
-                textbox.BackColor = Color.White;
-                textbox.ForeColor = Color.Black;
+                textbox.BackColor = mTextBoxEnabledBackColor;
+                textbox.ForeColor = SkinTextBoxTextColor.IsEmpty ? Color.Black : SkinTextBoxTextColor;
             }
 
             picDone.Image = ToDoCompleted[ActiveItem] ? ToDoImgDone : ToDoImgNotDone;
@@ -10546,3 +10546,4 @@ namespace MagmaRokOn
         }
     }
 }
+
